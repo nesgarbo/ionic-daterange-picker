@@ -18,11 +18,19 @@ Angular 20+, signals throughout, zoneless-safe, `ControlValueAccessor` included.
 
 ## Status
 
-`0.1.0`, in development. Not published yet; consume it through a link (see below).
+`1.0.0`.
 
 ## Install
 
-Not published yet, so a consuming app points at the built `dist/` directly:
+```bash
+npm install ionic-daterange-picker
+# or
+bun add ionic-daterange-picker
+```
+
+### Working against a local checkout
+
+While developing the picker itself, a consuming app points at the built `dist/` directly:
 
 ```bash
 cd ionic-daterange-picker
@@ -201,3 +209,20 @@ The pure parts — date maths, value coercion, the selection state machine, the 
 live in `src/lib/date-range-{date,model,intl}.ts` and are where the tests are. The two components
 are thin by design: one wraps `ion-datetime` with range logic, the other wraps that with a field and
 a dialog.
+
+## Releasing
+
+The package that goes to npm is the **built** one, `dist/`, not the repository root: the root
+`package.json` is the source manifest, and ng-packagr rewrites it — resolving the entry points,
+dropping the scripts and the devDependencies — into `dist/package.json`.
+
+```bash
+bun run test
+bun run build
+npm pack --dry-run ./dist   # what will actually be uploaded
+npm login                   # once
+bun run release             # build + npm publish ./dist
+```
+
+Bump `version` in the root `package.json`, tag it (`git tag -a v1.0.1 -m v1.0.1 && git push --tags`)
+and publish from a clean tree, so the tag and the version on npm say the same thing.
