@@ -1,0 +1,54 @@
+{
+    "name": "ionic-daterange-picker",
+    "version": "1.0.0",
+    "description": "Syncfusion-style date range picker for Ionic + Angular, built from native Ionic components and Ionic CSS tokens so third-party themes (@rdlabo/ionic-theme-md3, @rdlabo/ionic-theme-ios26) style it for free.",
+    "keywords": [
+        "ionic",
+        "angular",
+        "daterangepicker",
+        "date-range",
+        "calendar",
+        "signals"
+    ],
+    "license": "MIT",
+    "author": "Nestor Garcia Bou (https://github.com/nesgarbo)",
+    "homepage": "https://github.com/nesgarbo/ionic-daterange-picker#readme",
+    "bugs": {
+        "url": "https://github.com/nesgarbo/ionic-daterange-picker/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/nesgarbo/ionic-daterange-picker.git"
+    },
+    "sideEffects": false,
+    "packageManager": "bun@1.4.2",
+    "scripts": {
+        "build": "ng-packagr -p ng-package.json -c tsconfig.lib.json",
+        "watch": "ng-packagr -p ng-package.json -c tsconfig.lib.json -w",
+        "test": "vitest run",
+        "test:watch": "vitest",
+        "typecheck": "tsc -p tsconfig.lib.json --noEmit",
+        "release": "bun run build && npm publish ./dist"
+    },
+    "peerDependencies": {
+        "@angular/common": ">=20.0.0",
+        "@angular/core": ">=20.0.0",
+        "@angular/forms": ">=20.0.0",
+        "@ionic/angular": ">=8.0.0",
+        "ionicons": ">=7.0.0"
+    },
+    "devDependencies": {
+        "@angular/common": "^22.1.7",
+        "@angular/compiler": "^22.1.7",
+        "@angular/compiler-cli": "^22.1.7",
+        "@angular/core": "^22.1.7",
+        "@angular/forms": "^22.1.7",
+        "@angular/platform-browser": "^22.1.7",
+        "@ionic/angular": "^9.0.4",
+        "ng-packagr": "^22.0.0",
+        "rxjs": "^7.8.2",
+        "typescript": "^6.0.3",
+        "vitest": "^5.0.1",
+        "ionicons": "^8.0.13"
+    }
+}
